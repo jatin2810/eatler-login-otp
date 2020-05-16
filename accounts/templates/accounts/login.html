@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Eatler</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- <link href="/static/css/bootstrap.min.css" rel="stylesheet"> -->
+
+
+    </head>
+
+  <body>
+
+  <div class="container">
+    <div class="img">
+      <img src="{% static 'images/food1.jpg' %}">
+    </div>
+    <div class="login-content">
+      <form method="POST"  action="{% url "accounts:LoginView" %}" autocomplete="off">
+        {% csrf_token %}
+        <img src="{% static 'images/avatar.svg' %}">
+        <h3 class="title" >Login to Continue</h2>
+          <br>
+              <div class="input-div one" >
+                  <div class="i">
+
+                     <i class="fas fa-user"></i>
+                  </div>
+
+                  <div class="div">
+                      <h5>Phone Number</h5>
+                       <input id="myInput" class="input"  maxlength="10" name="phone_number" type="text" required />
+                       {{ form.phone_number.errors }}
+                </div>
+              </div>
+
+
+           <input type="submit" class="btn" value="Login">
+
+           <h3> Don't have an account?</h3>
+         <div>
+           <a   style="text-align:center" href="{% url "accounts:register_url" %}"><h4>Register</h4></a>
+         </div>
+
+
+            </form>
+
+            <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+        </div>
+    </div>
+
+
+  </body>
+</html>
